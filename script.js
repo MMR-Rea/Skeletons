@@ -15,6 +15,7 @@ let clickUpgradeCost = 25;
 
 
 
+
 //when candy button is clicked, increase candy by candy/click number
 /**first we add an event listener, which waits for a specifc thing to happen to an element
  and runs a function**/
@@ -26,7 +27,7 @@ upgclick.addEventListener("click", buyClickUpgrade)
 
 //function that adds candy to our total based on candy/click number, so long as we have less than 5000 candies
 function addCandy(){
-totalCandy +=1
+totalCandy += candyPerClick
 if (totalCandy===1) {
     TotalCandyDisplay.innerHTML= 1 + " Candy"
     
@@ -44,4 +45,16 @@ function canUserIncreaseClick(){
 
 //buy a click upgrade if we have enough coins. also used Math.trunc to remove pesky decimals
 function buyClickUpgrade(){
+    if (totalCandy >= clickUpgradeCost) {
+        totalCandy -= clickUpgradeCost
+        if (totalCandy===1) {
+    TotalCandyDisplay.innerHTML= 1 + " Candy"
+    } else {
+    TotalCandyDisplay.innerHTML= totalCandy + " Candies"}
+    candyPerClick += 2
+    CandyPerClickDisplay.innerHTML = "Candies/Click:" + candyPerClick
+    clickUpgradeCost = Math.round(clickUpgradeCost *=1.5)
+    upgclick.innerHTML = "Get 5 more candies/click for " + clickUpgradeCost + "candies"
+    
+    }
 }
