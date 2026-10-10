@@ -3,6 +3,8 @@ const candyBtn = document.getElementById("candy-btn")
 
 const upgclick = document.getElementById("upgclick")
 
+const removethis = document.getElementById("remove")
+
 //variables. we're also going to 
 let totalCandy = 0;
 
@@ -35,7 +37,8 @@ if (totalCandy===1) {
     TotalCandyDisplay.innerHTML= totalCandy + " Candies"
     
 }
-
+if (totalCandy>=1)
+removethis.innerHTML= ""    
 }
 
 //check to see if we can buy an upgrade, so we can grey out or brighten purchase button. adds or removes special css classes
@@ -53,7 +56,7 @@ function buyClickUpgrade(){
     TotalCandyDisplay.innerHTML= totalCandy + " Candies"}
     candyPerClick += 2
     CandyPerClickDisplay.innerHTML = "Candies/Click:" + candyPerClick
-    clickUpgradeCost = Math.round(clickUpgradeCost *=1.5)
+    clickUpgradeCost = Math.round(clickUpgradeCost *=1.8)
     upgclick.innerHTML = "Get 5 more candies/click for " + clickUpgradeCost + "candies"
     
     }
