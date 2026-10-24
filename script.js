@@ -14,7 +14,7 @@ const TotalCandyDisplay = document.getElementById("TotalCandies")
 let candyPerClick = 1
 const CandyPerClickDisplay = document.getElementById("CandyPerClick")
 
-let clickUpgradeCost = 25;
+let clickUpgrade1Cost = 25;
 
 
 canUserIncreaseClick()
@@ -48,7 +48,7 @@ function canUserIncreaseClick(){
 if (totalCandy >= 1000000) {
         document.body.innerHTML = "You finally paid off your debt to the Candy Mafia, and your family can now live happily ever after! For now..."
         }
-    if (totalCandy >= clickUpgradeCost) {
+    if (totalCandy >= clickUpgrade1Cost) {
         upgclick.classList.remove("too-broke")
         upgclick.classList.add("not-broke")
     } else {
@@ -61,16 +61,16 @@ if (totalCandy >= 1000000) {
 
 //buy a click upgrade if we have enough coins. also used Math.trunc to remove pesky decimals
 function buyClickUpgrade(){
-    if (totalCandy >= clickUpgradeCost) {
-        totalCandy -= clickUpgradeCost
+    if (totalCandy >= clickUpgrade1Cost) {
+        totalCandy -= clickUpgrade1Cost
         if (totalCandy===1) {
     TotalCandyDisplay.innerHTML= 1 + " Candy"
     } else {
     TotalCandyDisplay.innerHTML= totalCandy + " Candies"}
     candyPerClick = 2
     CandyPerClickDisplay.innerHTML = "Candies/Click:" + candyPerClick
-    clickUpgradeCost = Math.round(clickUpgradeCost *=1.8)
-    upgclick.innerHTML = "Get 2 more candies/click for " + clickUpgradeCost + "candies"
+    clickUpgrade1Cost = Math.round(clickUpgrade1Cost *=1.8)
+    upgclick.innerHTML = "Get 2 more candies/click for " + clickUpgrade1Cost + "candies"
     }
     canUserIncreaseClick()
 }
